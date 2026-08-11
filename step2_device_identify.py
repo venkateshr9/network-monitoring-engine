@@ -63,17 +63,6 @@ def detect_oem(sysdescr):
         return "RUCKUS"
     if "alpha bridge technologies" in s:
         return "ALPHA BRIDGE"
-    if "ctl-282424" in s:
-        return "CUBETEL"
-    if "jetstream" in s:
-        return "TP-LINK"
-    if "dgs-1510-28x" in s:
-        return "D-LINK"
-    if "tj1400p-m2-24sd-s" in s:
-        return "TEJAS"
-    if "tj1400p-m2-24hpd-s" in s:
-        return "TEJAS"
-
     return "EWIT"
 #====================== PARSE OEM VERSION ===============
 def cli_parse_show_version(ip):
@@ -159,8 +148,6 @@ def snmp_get_sysobjectid(ip, community):
 
 SYSOBJID_MODEL_MAP = {
     "1.3.6.1.4.1.11863": "TECHROUTES SWITCH",
-    "1.3.6.1.4.1.171": "DIGISOL SWITCH",
-    "1.3.6.1.4.1.17409": "EWIT SWITCH",
     "1.3.6.1.4.1.25053": "RUCKUS SWITCH",
 }
 #====================== MODEL FROM OSNMP OBJECT ID =============
@@ -232,13 +219,7 @@ def extract_model_from_sysdescr(oem, sysdescr):
         if m:
             return m.group(1)
 
-    if oem == "NOKIA":
-        if "7750" in s:
-            return "7750 SR"
-        if "7250" in s:
-            return "7250 IXR"
-
-    # Fallback: first meaningful token
+        # Fallback: first meaningful token
     return None
 #======================= HOSTNAME ===========================
 def normalize_hostname(hostname):
