@@ -269,19 +269,10 @@ def snmp_get_hostname(ip, community):
 #===================== Parsing ================================
 def parse_identity(hostname):
     location_wing_map = {
-        "AW_": ("SENA BHAWAN", "A WING"),
-        "BW_": ("SENA BHAWAN", "B WING"),
-        "CW_": ("SENA BHAWAN", "C WING"),
-        "D1W_": ("SENA BHAWAN", "D1 WING"),
-        "D2W_": ("SENA BHAWAN", "D2 WING"),
-        "KGAW_": ("KG MARG", "A WING"),
-        "KGBW_": ("KG MARG", "B WING"),
-        "AFAW_": ("AFRICA AVENUE", "A WING"),
-        "AFBW_": ("AFRICA AVENUE", "B WING"),
-        "KH_": ("KASHMIR HOUSE", "KH"),
-        "SB_": ("SOUTH BLOCK", "SB"),
-        "SE_": ("SIGNALS ENCLAVE", "SE"),
-    }
+        "AW_": ("TAJ HOTEL", "A WING"),
+        "BW_": ("TAJ HOTEL", "B WING"),
+        "CW_": ("TAJ HOTEL", "C WING"),
+        }
 
     wing = None
     location = None
